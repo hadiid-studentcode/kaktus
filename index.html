@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Cactus with Stars and Plants</title>
+  <link rel="stylesheet" href="style.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0f1b29; /* Dark background for night effect */
+  overflow: hidden;
+  height: 100vh;
+}
+
+.sky {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 20px 20px;
+  animation: twinkle 2s infinite alternate;
+}
+
+.cactus {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.main-trunk {
+  width: 50px;
+  height: 200px;
+  background-color: #3e8e41;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: sway 3s infinite ease-in-out;
+}
+
+.arm {
+  position: absolute;
+  width: 25px;
+  height: 100px;
+  background-color: #3e8e41;
+  border-radius: 15px;
+  animation: sway 3s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+.arm-left {
+  left: -45px;
+  top: 50px;
+  animation-delay: -1s;
+}
+
+.arm-right {
+  right: -45px;
+  top: 50px;
+  animation-delay: -1s;
+}
+
+.flower {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: flower-animation 5s infinite ease-in-out;
+}
+
+.flower-left {
+  left: -40px;
+  top: 50px;
+  animation-delay: 1s;
+}
+
+.flower-right {
+  right: -40px;
+  top: 50px;
+  animation-delay: 2s;
+}
+
+.plants {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.plant {
+  width: 20px;
+  height: 30px;
+  background-color: #4a8f5f;
+  border-radius: 5px;
+  animation: plant-grow 4s infinite ease-in-out;
+}
+
+.plant-left {
+  left: 10%;
+  animation-delay: 1.5s;
+}
+
+.plant-right {
+  right: 10%;
+  animation-delay: 2.5s;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes flower-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes plant-grow {
+  0% {
+    height: 30px;
+    opacity: 0;
+  }
+  50% {
+    height: 60px;
+    opacity: 1;
+  }
+  100% {
+    height: 30px;
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+</style>
+
+
+</head>
+<body>
+  <div class="sky">
+    <div class="stars"></div>
+    <div class="cactus">
+      <div class="main-trunk"></div>
+      <div class="arm arm-left"></div>
+      <div class="arm arm-right"></div>
+      <div class="flower flower-left"></div>
+      <div class="flower flower-right"></div>
+    </div>
+    <div class="plants">
+      <div class="plant plant-left"></div>
+      <div class="plant plant-right"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
